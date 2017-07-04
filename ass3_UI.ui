@@ -1,0 +1,2549 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object class="tk.Frame" id="mainWindow">
+    <property name="height">800</property>
+    <property name="width">600</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">True</property>
+      <property name="row">0</property>
+    </layout>
+    <child>
+      <object class="tk.Label" id="Label_1">
+        <property name="anchor">center</property>
+        <property name="background">#ffffd9</property>
+        <property name="font">{Cambria} 16 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="text" translatable="yes">Welcome to Haroon's Option Pricer</property>
+        <property name="width">50</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Button_1">
+        <property name="command">open_e_option_window</property>
+        <property name="font">{cambria} 12 {}</property>
+        <property name="text" translatable="yes">European Option Pricer</property>
+        <property name="width">30</property>
+        <bind add="True" handler="callBack" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">8</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Button_2">
+        <property name="command">open_impV_window</property>
+        <property name="font">{Cambria} 12 {}</property>
+        <property name="text" translatable="yes">Implied Volatility Pricer	</property>
+        <property name="width">30</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">8</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Button_3">
+        <property name="command">open_a_option_window</property>
+        <property name="font">{Cambria} 12 {}</property>
+        <property name="text" translatable="yes">American Option Calculator </property>
+        <property name="width">30</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">8</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Button_4">
+        <property name="command">open_geo_asian_option_window</property>
+        <property name="font">{Cambria} 12 {}</property>
+        <property name="text" translatable="yes">Geometric Asian Option Calculator	</property>
+        <property name="width">30</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">8</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Button_5">
+        <property name="command">open_arith_asian_option_window</property>
+        <property name="font">{Cambria} 12 {}</property>
+        <property name="text" translatable="yes">Arithmetic Asian Option Calculator</property>
+        <property name="width">30</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">8</property>
+          <property name="propagate">True</property>
+          <property name="row">5</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Button_6">
+        <property name="command">open_geo_basket_option_window</property>
+        <property name="font">{Cambria} 12 {}</property>
+        <property name="justify">center</property>
+        <property name="text" translatable="yes">Geometric Basket Option Calculator</property>
+        <property name="width">30</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">8</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Button" id="Button_7">
+        <property name="command">open_arith_basket_option_window</property>
+        <property name="font">{Cambria} 12 {}</property>
+        <property name="text" translatable="yes">Arithmetic Basket Option Calculator</property>
+        <property name="width">30</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">8</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Toplevel" id="eOptionWindow">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <child>
+      <object class="tk.Label" id="Label_2">
+        <property name="anchor">center</property>
+        <property name="background">#ffffd9</property>
+        <property name="font">{Cambria} 16 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="takefocus">false</property>
+        <property name="text" translatable="yes">European Option Calculator</property>
+        <property name="width">30</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_1">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_3">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset Spot Price</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetPrice">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetPrice</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_2">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_4">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Volatility (%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_volatility">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_volatility</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_3">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_5">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Risk-free rate(%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_riskFreeRate">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_riskFreeRate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_4">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">5</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_6">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Repo rate (%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_repoRate">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_repoRate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_5">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_7">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Time (years)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_timetoM">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_timetoM</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_6">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_8">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Strike Price</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_strikePrice">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_strikePrice</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_7">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">8</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_9">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Type (Key in Put or Call)	</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="optionType">
+            <property name="textvariable">string:optionType</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_9">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">9</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="Button_8">
+            <property name="command">calculate_eOptionPrice</property>
+            <property name="font">{cambria} 12 {}</property>
+            <property name="text" translatable="yes">Calculate Option Price</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">15</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="rowspan">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="optionPrice">
+        <property name="background">#ffffd9</property>
+        <property name="cursor">bottom_tee</property>
+        <property name="font">{Cambria} 14 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="justify">right</property>
+        <property name="takefocus">true</property>
+        <property name="text" translatable="yes">Option Price:</property>
+        <property name="textvariable">string:optionPrice</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">13</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Toplevel" id="impVolWindow">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <child>
+      <object class="tk.Label" id="Label_10">
+        <property name="anchor">center</property>
+        <property name="background">#ffffd9</property>
+        <property name="font">{Cambria} 16 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="takefocus">false</property>
+        <property name="text" translatable="yes">Implied Volatility Calculator</property>
+        <property name="width">30</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_8">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_11">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset Spot Price</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetPrice_2">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetPrice</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_11">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_13">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Risk-free rate(%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_riskFreeRate_4">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_riskFreeRate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_12">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">5</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_14">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Repo rate (%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_repoRate_5">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_repoRate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_13">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_15">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Time (years)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_timetoM_6">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_timetoM</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_14">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_16">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Strike Price</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_strikePrice_7">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_strikePrice</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_15">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">8</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_17">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Option Premium</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_optionPremium">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_optionPremium</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_16">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">9</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_18">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Type (Key in Put or Call)	</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="optionType_9">
+            <property name="textvariable">string:optionType</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_17">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">10</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="Button_9">
+            <property name="command">calculate_impVol</property>
+            <property name="font">{cambria} 12 {}</property>
+            <property name="text" translatable="yes">Calculate Implied Volatility</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">15</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="rowspan">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="impV">
+        <property name="background">#ffffd9</property>
+        <property name="cursor">bottom_tee</property>
+        <property name="font">{Cambria} 14 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="justify">right</property>
+        <property name="takefocus">true</property>
+        <property name="text" translatable="yes">Implied Volatility:</property>
+        <property name="textvariable">string:impV</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">13</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Toplevel" id="amOptionWindow">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <child>
+      <object class="tk.Label" id="Label_19">
+        <property name="anchor">center</property>
+        <property name="background">#ffffd9</property>
+        <property name="font">{Cambria} 16 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="takefocus">false</property>
+        <property name="text" translatable="yes">American Option Calculator</property>
+        <property name="width">30</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_18">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_20">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset Spot Price</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetPrice_10">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetPrice</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_19">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_21">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Volatility (%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_volatility_11">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_volatility</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_20">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_22">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Risk-free rate(%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_riskFreeRate_12">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_riskFreeRate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_22">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_24">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Time (years)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_timetoM_14">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_timetoM</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_23">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_25">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Strike Price</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_strikePrice_15">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_strikePrice</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_24">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">8</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_26">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Number of steps</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_noOfSteps">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">int:entry_noOfSteps</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_25">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">9</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_27">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Type (Key in Put or Call)	</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="optionType_17">
+            <property name="textvariable">string:optionType</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_26">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">10</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="Button_10">
+            <property name="command">calculate_amOptionPrice</property>
+            <property name="font">{cambria} 12 {}</property>
+            <property name="text" translatable="yes">Calculate Option Price</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">15</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="rowspan">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="optionPrice_1">
+        <property name="background">#ffffd9</property>
+        <property name="cursor">bottom_tee</property>
+        <property name="font">{Cambria} 14 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="justify">right</property>
+        <property name="takefocus">true</property>
+        <property name="text" translatable="yes">Option Price:</property>
+        <property name="textvariable">string:optionPrice</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">13</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Toplevel" id="geoAsianOptionWindow">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <child>
+      <object class="tk.Label" id="Label_12">
+        <property name="anchor">center</property>
+        <property name="background">#ffffd9</property>
+        <property name="font">{Cambria} 16 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="takefocus">false</property>
+        <property name="text" translatable="yes">Geometric Asian Option Calculator</property>
+        <property name="width">30</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_10">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_23">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset Spot Price</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetPrice_10_1">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetPrice</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_21">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_28">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Volatility (%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_volatility_11_2">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_volatility</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_27">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_29">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Risk-free rate(%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_riskFreeRate_12_3">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_riskFreeRate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_29">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_31">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Time (years)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_timetoM_14_5">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_timetoM</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_30">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_32">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Strike Price</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_strikePrice_15_6">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_strikePrice</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_31">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">8</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_33">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Observations(#)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_noOfObservations">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">int:entry_noOfObservations</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_32">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">9</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_34">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Type (Key in Put or Call)	</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="optionType_17_8">
+            <property name="textvariable">string:optionType</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_33">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">10</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="Button_11">
+            <property name="command">calculate_geoAsianOptionPrice</property>
+            <property name="font">{cambria} 12 {}</property>
+            <property name="text" translatable="yes">Calculate Option Price</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">15</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="rowspan">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="optionPrice_2">
+        <property name="background">#ffffd9</property>
+        <property name="cursor">bottom_tee</property>
+        <property name="font">{Cambria} 14 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="justify">right</property>
+        <property name="takefocus">true</property>
+        <property name="text" translatable="yes">Option Price:</property>
+        <property name="textvariable">string:optionPrice</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">13</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Toplevel" id="geoBasketOptionWindow">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <child>
+      <object class="tk.Label" id="Label_35">
+        <property name="anchor">center</property>
+        <property name="background">#ffffd9</property>
+        <property name="font">{Cambria} 16 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="takefocus">false</property>
+        <property name="text" translatable="yes">Geometric Basket Option Calculator</property>
+        <property name="width">30</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_34">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_36">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset 1 Spot Price</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetPrice1">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetPrice1</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_36">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_38">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset 2 Spot Price</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetPrice2">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetPrice2</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_37">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_39">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset 1 Volatility(%)</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetVolatility1">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetVolatility1</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_38">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_40">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset 2 Volatility(%)</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetVolatility2">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetVolatility2</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_39">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">5</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_41">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Risk-free rate(%)</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_riskFreeRate_12_4_15">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_riskFreeRate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_41">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_43">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Time (years)</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_timetoM_14_5_17">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_timetoM</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_42">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_44">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Strike Price</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_strikePrice_15_6_18">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_strikePrice</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_43">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">8</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_45">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Correlation</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_correlation">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_correlation</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_44">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">9</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_46">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Type (Key in Put or Call)	</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="optionType_17_8_20">
+            <property name="textvariable">string:optionType</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_45">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">10</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="Button_12">
+            <property name="command">calculate_geoBasketOptionPrice</property>
+            <property name="font">{cambria} 12 {}</property>
+            <property name="text" translatable="yes">Calculate Option Price</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">15</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="rowspan">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="optionPrice_3">
+            <property name="background">#ffffd9</property>
+            <property name="cursor">bottom_tee</property>
+            <property name="font">{Cambria} 14 {bold}</property>
+            <property name="foreground">#b7b7ff</property>
+            <property name="justify">right</property>
+            <property name="takefocus">true</property>
+            <property name="text" translatable="yes">Option Price:</property>
+            <property name="textvariable">string:optionPrice</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">10</property>
+              <property name="propagate">True</property>
+              <property name="row">13</property>
+              <property name="rowspan">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Toplevel" id="arithAsianOptionWindow">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <child>
+      <object class="tk.Label" id="Label_30">
+        <property name="anchor">center</property>
+        <property name="background">#ffffd9</property>
+        <property name="font">{Cambria} 16 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="text" translatable="yes">Arithmetic Asian Option Calculator</property>
+        <property name="width">30</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_28">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_37">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset Spot Price</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetPrice_10_1_1">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetPrice</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_35">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_42">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Volatility (%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_volatility_11_2_2">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_volatility</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_40">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_47">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Risk-free rate(%)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_riskFreeRate_12_3_3">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_riskFreeRate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_46">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_48">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Time (years)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_timetoM_14_5_4">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_timetoM</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_47">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_49">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Strike Price</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_strikePrice_15_6_5">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_strikePrice</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_48">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">8</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_50">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Observations(#)</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_noOfObservations_6">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">int:entry_noOfObservations</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_50">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">9</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_52">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">No of steps</property>
+            <property name="width">13</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_noOfSteps_1">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">int:entry_noOfSteps</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_51">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">10</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_53">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Control Variate (True/False)	</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_controlVariate">
+            <property name="cursor">coffee_mug</property>
+            <property name="textvariable">string:entry_controlVariate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_52">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">11</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_54">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Type (Key in Put or Call)</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_optionType">
+            <property name="cursor">coffee_mug</property>
+            <property name="textvariable">string:entry_optionType</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_53">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">12</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="Button_13">
+            <property name="command">calculate_arithAsianOptionPrice</property>
+            <property name="text" translatable="yes">Calculate Option Price</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">15</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="rowspan">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="optionPrice_4">
+        <property name="background">#ffffd9</property>
+        <property name="cursor">bottom_tee</property>
+        <property name="font">{Cambria} 14 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="justify">right</property>
+        <property name="takefocus">true</property>
+        <property name="text" translatable="yes">Option Price:</property>
+        <property name="textvariable">string:optionPrice</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">13</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+  <object class="tk.Toplevel" id="arithBasketOptionWindow">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <child>
+      <object class="tk.Label" id="Label_51">
+        <property name="anchor">center</property>
+        <property name="background">#ffffd9</property>
+        <property name="font">{Cambria} 16 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="takefocus">false</property>
+        <property name="text" translatable="yes">Arithmetic Basket Option Calculator</property>
+        <property name="width">30</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_49">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_55">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset 1 Spot Price</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetPrice1_1">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetPrice1</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_54">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_56">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset 2 Spot Price</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetPrice2_2">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetPrice2</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_55">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_57">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset 1 Volatility(%)</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetVolatility1_3">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetVolatility1</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_56">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_58">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Asset 2 Volatility(%)</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_assetVolatility2_4">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_assetVolatility2</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_57">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">5</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_59">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Risk-free rate(%)</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_riskFreeRate_12_4_15_5">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_riskFreeRate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_58">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_60">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Time (years)</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_timetoM_14_5_17_6">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_timetoM</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_59">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_61">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Strike Price</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_strikePrice_15_6_18_7">
+            <property name="font">{Cambria} 10 {}</property>
+            <property name="textvariable">double:entry_strikePrice</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_60">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">8</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_62">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Correlation</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_correlation_8">
+            <property name="font">{cambria} 10 {}</property>
+            <property name="textvariable">double:entry_correlation</property>
+            <property name="validate">all</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_65">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">9</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_67">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">No of steps</property>
+            <property name="width">15</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_correlation_8_12">
+            <property name="font">{cambria} 10 {}</property>
+            <property name="textvariable">int:entry_noOfSteps</property>
+            <property name="validate">all</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_62">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">10</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_64">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Control Variate (True/False)	</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_controlVariate_10">
+            <property name="cursor">coffee_mug</property>
+            <property name="textvariable">string:entry_controlVariate</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_63">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">11</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="Label_65">
+            <property name="font">{Cambria} 12 {}</property>
+            <property name="text" translatable="yes">Type (Key in Put or Call)</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="entry_optionType_11">
+            <property name="cursor">coffee_mug</property>
+            <property name="textvariable">string:entry_optionType</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="propagate">True</property>
+              <property name="row">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="Frame_64">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">12</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="Button_14">
+            <property name="command">calculate_arithBasketOptionPrice</property>
+            <property name="font">{cambria} 12 {}</property>
+            <property name="text" translatable="yes">Calculate Option Price</property>
+            <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+            <layout>
+              <property name="column">0</property>
+              <property name="pady">15</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+              <property name="rowspan">1</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Label" id="optionPrice_4_66">
+        <property name="background">#ffffd9</property>
+        <property name="cursor">bottom_tee</property>
+        <property name="font">{Cambria} 14 {bold}</property>
+        <property name="foreground">#b7b7ff</property>
+        <property name="justify">right</property>
+        <property name="takefocus">true</property>
+        <property name="text" translatable="yes">Option Price:</property>
+        <property name="textvariable">string:optionPrice</property>
+        <bind add="True" handler="callback" sequence="&lt;1&gt;" />
+        <layout>
+          <property name="column">0</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">13</property>
+          <property name="rowspan">1</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>
